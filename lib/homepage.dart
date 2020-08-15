@@ -45,50 +45,76 @@ class _HomePageState extends State<HomePage> {
           VerticalDivider(
             color: Colors.white54,width: 1,
           ),
-          Expanded(
-            child: Container(
 
-              padding: EdgeInsets.symmetric(horizontal: 32,vertical: 64),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text("Clock",
-                  style: TextStyle(color: Colors.white,fontSize: 22),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height*.042,
-                  ),
-                  Text(formattedTime,
-                    style: TextStyle(color: Colors.white,fontSize: 54),
-                  ),
-                  Text(formattedDate,
-                    style: TextStyle(color: Colors.white,fontSize: 18),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height*.025,
-                  ),
-                  RoundClock(),
-                  SizedBox(height: MediaQuery.of(context).size.height*.03,),
-                  Text("Timezone",
-                    style: TextStyle(color: Colors.white,fontSize: 18),
-                  ),
-                  SizedBox(height: MediaQuery.of(context).size.height*.015,),
-                  Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.language,color: Colors.white,size: 17,
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 32,vertical: 64),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Flexible(
+                      flex: 1,
+                      fit: FlexFit.tight,
+                      child: Text("Clock",
+                      style: TextStyle(color: Colors.white,fontSize: 22),
+                      ),
+                    ),
+                    Flexible(
+                      flex: 2,
+                      fit: FlexFit.tight,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(formattedTime,
+                            style: TextStyle(color: Colors.white,fontSize: 54),
+                          ),
+                          Text(formattedDate,
+                            style: TextStyle(color: Colors.white,fontSize: 18),
+                          ),
 
+                        ],
                       ),
-                      SizedBox(width: MediaQuery.of(context).size.width*.05,),
-                      Text("UTC"+offsetSign+timeZoneString1+":"+timeZoneString,
-                        style: TextStyle(color: Colors.white,fontSize: 17),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height*.025,
+                    ),
+                    Flexible(
+                      flex: 5,
+                        fit: FlexFit.tight,
+                        child: Align(
+                            alignment: Alignment.center,
+                            child: RoundClock(size: 220.0,))),
+                    Flexible(
+                      flex: 2,
+                      fit: FlexFit.tight,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text("Timezone",
+                            style: TextStyle(color: Colors.white,fontSize: 18),
+                          ),
+                          SizedBox(height: MediaQuery.of(context).size.height*.015,),
+                          Row(
+                            children: <Widget>[
+                              Icon(
+                                Icons.language,color: Colors.white,size: 17,
+
+                              ),
+                              SizedBox(width: MediaQuery.of(context).size.width*.05,),
+                              Text("UTC"+offsetSign+timeZoneString1+":"+timeZoneString,
+                                style: TextStyle(color: Colors.white,fontSize: 17),
+                              ),
+                            ],
+                          )
+                        ],
                       ),
-                    ],
-                  )
-                ],
+                    ),
+
+                  ],
+                ),
               ),
             ),
-          ),
+
         ],
       ),
     );
