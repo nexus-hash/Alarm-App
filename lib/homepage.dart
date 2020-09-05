@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:new_proj/clock_round.dart';
 import 'package:intl/intl.dart';
@@ -30,17 +32,17 @@ class _HomePageState extends State<HomePage> {
       backgroundColor:  Color(0xFF2D2F41),
       body: Row(
         children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              FlatButton(onPressed: (){}, child:
-              Column(
-                children: <Widget>[
-                  FlutterLogo(),
-                ],
-              )
-              )
-            ],
+          Flexible(
+            flex: -3,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                buildMenu("Clock",0XFFC279FB),
+                buildMenu("Alarm",0xFF748EF6),
+                buildMenu("StopWatch",0xFFFFD54F),
+                buildMenu("Timer",0xFFEAECFF),
+              ],
+            ),
           ),
           VerticalDivider(
             color: Colors.white54,width: 1,
@@ -116,6 +118,31 @@ class _HomePageState extends State<HomePage> {
             ),
 
         ],
+      ),
+    );
+  }
+  Padding buildMenu(String title,int x){
+    return Padding(
+      padding: const EdgeInsets.all(0),
+      child: FlatButton(onPressed: (){},
+          child:
+             Column(
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height*.06,),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      color: Color(x),
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height*.06,)
+              ],
+          )
       ),
     );
   }
