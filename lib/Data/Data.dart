@@ -1,4 +1,5 @@
 import 'package:new_proj/Data/enums.dart';
+import 'AlarmInfo.dart';
 
 import 'menuInfo.dart';
 
@@ -11,4 +12,9 @@ List<MenuInfo> menuItems=[
       title: 'Timer',x: 0xFFFFD54F),
   MenuInfo(MenuType.stopwatch,
       title: 'Stopwatch',x: 0xFFEAECFF),
+];
+
+List<AlarmInfo> alarms=[
+  AlarmInfo(DateTime.now().add(Duration(minutes: 3)),description: 'refe'),
+  AlarmInfo(DateTime.now().add(Duration(minutes: 3)),description: 'DoctorAp'),
 ];
