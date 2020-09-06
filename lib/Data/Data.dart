@@ -1,4 +1,5 @@
 import 'package:new_proj/Data/enums.dart';
+import 'package:new_proj/Static_Constaints.dart';
 import 'AlarmInfo.dart';
 
 import 'menuInfo.dart';
@@ -15,6 +16,6 @@ List<MenuInfo> menuItems=[
 ];
 
 List<AlarmInfo> alarms=[
-  AlarmInfo(DateTime.now().add(Duration(minutes: 3)),description: 'refe'),
-  AlarmInfo(DateTime.now().add(Duration(minutes: 3)),description: 'DoctorAp'),
+  AlarmInfo(DateTime.now().add(Duration(minutes: 3)),description: 'refe',gradientColors: GradientColors.sky),
+  AlarmInfo(DateTime.now().add(Duration(minutes: 3)),description: 'DoctorAp',gradientColors: GradientColors.sunset),
 ];
