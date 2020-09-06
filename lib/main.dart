@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:new_proj/Data/enums.dart';
 import 'package:new_proj/Data/menuInfo.dart';
 import 'package:provider/provider.dart';
 import 'Views/homepage.dart';
 import 'package:flutter/services.dart';
 
+
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin= FlutterLocalNotificationsPlugin();
+
+
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Icon alarmIcon=Icon(Icons.alarm);
+  var initailizationSettingsAndroid = AndroidInitializationSettings('flutter_logo');
+
   runApp(MyApp());
 }
 
