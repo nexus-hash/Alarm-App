@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:new_proj/enums.dart';
+import 'package:new_proj/Data/enums.dart';
 
 class MenuInfo extends ChangeNotifier{
   MenuType menuType;

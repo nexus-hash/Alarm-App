@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:new_proj/enums.dart';
-import 'package:new_proj/menuInfo.dart';
+import 'package:new_proj/Data/enums.dart';
+import 'package:new_proj/Data/menuInfo.dart';
 import 'package:provider/provider.dart';
-import 'homepage.dart';
+import 'Views/homepage.dart';
 import 'package:flutter/services.dart';
 
 void main() {

@@ -1,4 +1,4 @@
-import 'package:new_proj/enums.dart';
+import 'package:new_proj/Data/enums.dart';
 
 import 'menuInfo.dart';
 
