@@ -121,29 +121,29 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-  Padding buildMenu(String title,int x){
-    return Padding(
-      padding: const EdgeInsets.all(0),
-      child: FlatButton(onPressed: (){},
-          child:
-             Column(
-              children: [
-                SizedBox(height: MediaQuery.of(context).size.height*.06,),
-                Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    title,
-                    style: TextStyle(
-                      color: Color(x),
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+  Widget buildMenu(String title,int x){
+    return
+      FlatButton(
+        onPressed: (){},
+        padding: const EdgeInsets.all(0),
+        color: title=='Clock'?Colors.red:Colors.transparent,
+        child: Column(
+          children: [
+            SizedBox(height: MediaQuery.of(context).size.height*.06,),
+            Align(
+              alignment: Alignment.center,
+              child: Text(
+                title,
+                style: TextStyle(
+                  color: Color(x),
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height*.06,)
-              ],
-          )
-      ),
+              ),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height*.06,)
+          ],
+        ),
     );
   }
 }
