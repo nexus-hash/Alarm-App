@@ -1,9 +1,18 @@
+import 'package:flutter/foundation.dart';
 import 'package:new_proj/enums.dart';
 
-class MenuInfo {
+class MenuInfo extends ChangeNotifier{
   MenuType menuType;
   String title;
   int x;
 
   MenuInfo(this.menuType,{this.title,this.x});
+
+  updateMenu(MenuInfo menuInfo){
+    this.menuType=menuInfo.menuType;
+    this.title=menuInfo.title;
+    this.x=menuInfo.x;
+
+    notifyListeners();
+  }
 }

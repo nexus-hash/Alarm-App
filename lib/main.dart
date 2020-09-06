@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:new_proj/enums.dart';
+import 'package:new_proj/menuInfo.dart';
+import 'package:provider/provider.dart';
 import 'homepage.dart';
 import 'package:flutter/services.dart';
 
@@ -17,7 +20,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(0xFF2D2F41)
       ),
-      home: HomePage(),
+      home: ChangeNotifierProvider<MenuInfo>(
+          create: (context)=>MenuInfo(MenuType.clock),
+          child: HomePage()),
     );
   }
 }

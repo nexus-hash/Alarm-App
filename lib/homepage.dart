@@ -3,6 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:new_proj/clock_round.dart';
 import 'package:intl/intl.dart';
+import 'package:new_proj/menuInfo.dart';
+import 'package:provider/provider.dart';
+import 'Data.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -36,12 +39,7 @@ class _HomePageState extends State<HomePage> {
             flex: -3,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                buildMenu("Clock",0XFFC279FB),
-                buildMenu("Alarm",0xFF748EF6),
-                buildMenu("StopWatch",0xFFFFD54F),
-                buildMenu("Timer",0xFFEAECFF),
-              ],
+              children: menuItems.map((currentMenuInfo)=>buildMenu(currentMenuInfo)).toList()
             ),
           ),
           VerticalDivider(
@@ -121,29 +119,42 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-  Widget buildMenu(String title,int x){
+  Widget buildMenu(MenuInfo currentMenuInfo){
     return
-      FlatButton(
-        onPressed: (){},
-        padding: const EdgeInsets.all(0),
-        color: title=='Clock'?Colors.red:Colors.transparent,
-        child: Column(
-          children: [
-            SizedBox(height: MediaQuery.of(context).size.height*.06,),
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                title,
-                style: TextStyle(
-                  color: Color(x),
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+      Consumer<MenuInfo>(
+        builder: (BuildContext context, MenuInfo value, Widget child){
+          return FlatButton(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(topRight: Radius.circular(32))
             ),
-            SizedBox(height: MediaQuery.of(context).size.height*.06,)
-          ],
-        ),
-    );
+            color: currentMenuInfo.menuType == value.menuType ?
+                Color(0xFF2D2B33) :
+                    Colors.transparent
+            ,
+            onPressed: (){
+              var menuInfo = Provider.of<MenuInfo>(context,listen: false);
+              menuInfo.updateMenu(currentMenuInfo);
+            },
+            padding: const EdgeInsets.all(0),
+            child: Column(
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height*.06,),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    currentMenuInfo.title,
+                    style: TextStyle(
+                      color: Color(currentMenuInfo.x),
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height*.06,)
+              ],
+            ),
+          );
+        },
+      );
   }
 }
